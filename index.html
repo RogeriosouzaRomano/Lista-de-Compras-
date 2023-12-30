@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Lista de Compras</title>
+   
+</head>
+<body>
+<div class="conteudo">
+    <h2>Minhas Compras </h2>
+    <div class="visor">
+<h3>Total:</h3>
+    <p id="total">R$ 0.00</p>
+    </div>
+    
+
+    <label for="produto">Selecione um Produto:</label><br>
+    <select id="produto">
+        <!-- Options will be dynamically loaded from local storage on page load -->
+    </select>
+    <br>
+
+    <label for="valor">Preço:</label><br>
+    <input type="number" id="valor">
+
+    <button onclick="adicionarItem()">Add Item</button>
+    
+    <h3>Items selecionados:</h3>
+    <table id="tabela">
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th id="acao">Ação</th>
+        </tr>
+    </table>
+</div>
+    <br>
+    <div class="newP">
+    <label for="novoProduto">Add Novo Produto:</label><br>
+    <input type="text" id="novoProduto"><br>
+    <button onclick="adicionarNovoProduto()">Add novo produto à lista</button>
+
+    <button onclick="removerItemSelecionado()">Remove Selected Item</button>
+    <button onClick="window.print()">Imprimir</button>
+    </div>
+
+    <script>
+        // Load products from local storage on page load
+        window.onload = function() {
+            carregarLista();
+        };
+
+        function adicionarItem() {
+            var produto = document.getElementById('produto').value;
+            var valor = parseFloat(document.getElementById('valor').value) || 0;
+
+            if (produto !== "" && !isNaN(valor)) {
+                var tabela = document.getElementById('tabela');
+                var novaLinha = tabela.insertRow(-1);
+
+                var celulaProduto = novaLinha.insertCell(0);
+                celulaProduto.innerHTML = produto;
+
+                var celulaValor = novaLinha.insertCell(1);
+                celulaValor.innerHTML = 'R$ ' + valor.toFixed(2);
+
+                var celulaAcao = novaLinha.insertCell(2);
+                celulaAcao.innerHTML = '<button onclick="removerItem(this)">Remove</button>';
+
+                atualizarTotal(valor);
+
+                document.getElementById('produto').value = '';
+                document.getElementById('valor').value = '';
+
+                // Save the updated list to local storage
+                salvarLista();
+            }
+        }
+
+        function removerItem(botao) {
+            var linha = botao.parentNode.parentNode;
+            var valorRemovido = parseFloat(linha.cells[1].innerText.replace('R$ ', '')) || 0;
+
+            linha.parentNode.removeChild(linha);
+
+            atualizarTotal(-valorRemovido);
+
+            // Save the updated list to local storage
+            salvarLista();
+        }
+
+        function adicionarNovoProduto() {
+            var novoProduto = document.getElementById('novoProduto').value;
+
+            if (novoProduto !== "") {
+                var selectProduto = document.getElementById('produto');
+                var option = document.createElement('option');
+                option.value = novoProduto;
+                option.text = novoProduto;
+                selectProduto.add(option);
+
+                // Clear the input field after adding the new product
+                document.getElementById('novoProduto').value = '';
+
+                // Save the updated list to local storage
+                salvarLista();
+            }
+        }
+
+        function removerItemSelecionado() {
+            var selectProduto = document.getElementById('produto');
+            var produtoSelecionado = selectProduto.value;
+
+            // Remove the selected option from the <select>
+            for (var i = 0; i < selectProduto.options.length; i++) {
+                if (selectProduto.options[i].value === produtoSelecionado) {
+                    selectProduto.remove(i);
+                    break;
+                }
+            }
+
+            // Remove the corresponding row from the table
+            var tabela = document.getElementById('tabela');
+            for (var i = 1; i < tabela.rows.length; i++) {
+                if (tabela.rows[i].cells[0].innerText === produtoSelecionado) {
+                    var valorRemovido = parseFloat(tabela.rows[i].cells[1].innerText.replace('R$ ', '')) || 0;
+                    tabela.deleteRow(i);
+                    atualizarTotal(-valorRemovido);
+                    break;
+                }
+            }
+
+            // Save the updated list to local storage
+            salvarLista();
+        }
+
+        function atualizarTotal(valor) {
+            var totalAnterior = parseFloat(document.getElementById('total').innerText.replace('R$ ', '')) || 0;
+            var novoTotal = totalAnterior + valor;
+
+            document.getElementById('total').innerText = 'R$ ' + novoTotal.toFixed(2);
+        }
+
+        function salvarLista() {
+            var selectProduto = document.getElementById('produto');
+            var listaProdutos = [];
+
+            // Iterate over options and save them to the list
+            for (var i = 0; i < selectProduto.options.length; i++) {
+                listaProdutos.push(selectProduto.options[i].value);
+            }
+
+            // Save the list to local storage
+            localStorage.setItem('listaProdutos', JSON.stringify(listaProdutos));
+        }
+
+        function carregarLista() {
+            var selectProduto = document.getElementById('produto');
+
+            // Clear existing options
+            selectProduto.innerHTML = '';
+
+            var listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')) || [];
+
+            // Add options to the select element
+            for (var i = 0; i < listaProdutos.length; i++) {
+                var option = document.createElement('option');
+                option.value = listaProdutos[i];
+                option.text = listaProdutos[i];
+                selectProduto.add(option);
+            }
+        }
+    </script>
+
+</body>
+</html>
