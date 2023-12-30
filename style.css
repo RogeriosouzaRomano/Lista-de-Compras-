@@ -1,18 +1,23 @@
 body {
     margin: 0;
-    padding: 4px;
+    padding: 14px;
     width: 400px;
     height: 100%;
-    background-image:url('shopping-online-ecommerce-consum.jpg');
-    background-size:cover;
+   
+    background-size:auto;
     background-repeat:no-repeat;
     background-color:#40ffe0;
     background-position: center center;
     font-size:large;
     
 }
+.container{width: 340px;
+background-color:#121523ab;
+           padding: 4px;
+    
+}
 table {
-            border-collapse: collapse;
+            border-collapse: collapse;position: ;
             width: 60%;
             margin-top: 20px;
             background-color:#414741a8;
@@ -41,8 +46,10 @@ table {
     box-shadow:1px 2px black ;
 }
 h3{
-    color: #054019 ;
+   width: 200px;
+    color: #eaffff;
     font-size:20px;
+    background-color:#4f564fd9;
 }
 h2{ font-size:20px;
     color: #ffffff;
@@ -73,10 +80,20 @@ label{
     border-radius: 5px;
 }
 .newP{
+    width: 300px;
+    
     border:solid 1px black ;
     border-radius: 5px;
-    padding: 10px;
+    padding: 6px;
 }
+
+
+input {
+    width: 50px;
+    height: 30px;
+    margin: 3px;
+}
+
 @media print{
    
 
@@ -108,4 +125,5 @@ label{
         }
         #acao{display:none;}
     
-}
+    }
+    
