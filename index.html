@@ -29,7 +29,7 @@
     <input type="number" id="quantidade" value="1">
     <br>
 
-    <button onclick="adicionarItem()">Add Item</button>
+    <button class="btadd"onclick="adicionarItem()">Add Item</button>
     
     <h3>Items selecionados:</h3>
     <table id="tabela">
@@ -47,7 +47,7 @@
     <input type="text" id="novoProduto"><br>
     <button onclick="adicionarNovoProduto()">Add novo produto à lista</button>
 
-    <button onclick="removerItemSelecionado()">Remove Selected Item</button>
+    <button onclick="removerItemSelecionado()">Remover item </button>
     <button onClick="window.print()">Imprimir</button>
 </div>
 </div>
@@ -77,7 +77,7 @@
             celulaValor.innerHTML = 'R$ ' + (valor * quantidade).toFixed(2);
 
             var celulaAcao = novaLinha.insertCell(3);
-            celulaAcao.innerHTML = '<button onclick="removerItem(this)">Remove</button>';
+            celulaAcao.innerHTML = '<button id="remove" onclick="removerItem(this)">Remove</button>';
 
             atualizarTotal(valor * quantidade);
 
