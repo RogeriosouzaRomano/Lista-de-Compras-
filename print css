@@ -1,1 +1,31 @@
 
+ body {
+     width: 21cm;
+        min-height: 15cm;
+        color: black;
+        border: 1px #000000dd solid;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    
+
+button{
+    display:none;
+}
+select{
+    display: none ;
+}
+input{
+    display:none;
+}
+label{
+    display:none;
+}
+table{
+    width: 60%;
+}
+#acao{
+    display:none;
+}
+
