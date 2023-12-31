@@ -3,180 +3,53 @@
     padding: 0;
 }
 body {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
     height: 100vh;
-   display: grid;
-
-place-items: center;
-font-size:370%;
-
-    background-size:auto;
-    background-repeat:no-repeat;
-    background-color:#0e5fae;
-    background-position: center center;
-    
-    
-}
-.container{width: 90vw;
-           height: 99vh;
-           display: grid;
-place-items: center;
-background-color:#121523ab;
-           padding: 4px;
-           border-radius: 7px;
-    
-}
-table {
-            border-collapse: collapse;position: ;
-            width: 60%;
-            margin-top: 20px;
-            background-color:#414741a8;
-            font-size:60%;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 1px;
-            text-align: center;
-            
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-.visor{padding: 4px;
-    border :solid 1px black ;
-    border-radius: 7px;
-    display : fixed ;
-    width: 30%;
-    
-    float: right ;
-    margin-right:17px;
-    background-color:#4f564fd9;
-    color: white;
-    border-color: white ;
-    box-shadow:1px 2px black ;
-    font-size:70%;
-}
-h3{
-   width: 50%;
-    color: #eaffff;
-    font-size:50px;
-    
-   
-    background-color:#4f564fd9;
-    font-size:40%;
-}
-h2{ 
+    background-color:#1173d1;
     color: #ffffff;
-    font-size:100%;
-}
-input {
-    height: 3%;
-    font-size:90%;
+    display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+
     
 }
-select {
-    height: 5%;
-  font-size:90%;
-    margin: 3px;
-    
-}
-button{
-    font-size:70%;
-    height: 5vh;
-    margin: 19px;
+.container {
+   width: 90vw;
+    background-color:#01070cb7 ;
+    height: 100vh;
+    margin: 1px;
+    padding: 16px;
+    padding-top:70px;
     border-radius: 15px;
-    width: 50vw;
+    
+    
+}
+.visor{
+  border: solid 1px black ;
+  border-radius: 5px;
+  background-color:#6d6d6d;
+  margin-left:50%;
+  width: 25vw;
+  font-size:30px;
+  border-color:#ffffff;
+}
+#tabela{
+    border: solid 1px black ;
+    
+}
+th{width: 20vw;
+    border: solid 1px black ;
+}
+button {
+    width: 45vw;
+    height: 5vh;
+    margin: 10px;
+    border-radius: 7px;
+    font-size:15px;
 }
 .btadd{
-    border-radius: 15px;
-    height: 5vh;
-    width: 20vw;
-    font-size:70%;
-    margin: 5px;
-    margin-left:65%;
+    margin-left:50%;
+    font-size:20px;
 }
-#valor{
-    width: 20%;
-}
-label{
-    background-color:#3f3f3fbe;
-    color: #fbfbfbfb;
-    padding: 2px;
-   font-size:70%;
-    border-radius: 5px;
-}
-.newP{
-    width: 60vw;
-    display: grid;
-    place-items: center;
-    align-item: center ;
-    border:solid 1px black ;
-    border-radius: 5px;
-    padding: 6px;
-}
-
-
-#quantidade{
-   width: 20%;
-    font-size:70%;
-    margin: 3px;
-}
-#novoProduto{
-   font-size:70%; 
-   height: 5vh;
-   
-}
-
-@media print{
-   *{
-       margin: 0;
-       padding: 0;
-   }
-
-    body {
-        page-break-before: always;
-        
-      
-        width: 21cm;
-        min-height: 29.7cm;
-        padding: 2cm;
-        margin-top:1px;
-        margin: 1cm auto;
-        border: 1px #D3D3D3 solid;
-        border-radius: 5px;
-        background: white;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        font-size:150%;
-    }
-
-    .conteudo {
-        width: 100%;
-        margin: 0;padding: 0;
-    }
-
-  select {display:none;}
-    button {
-        display :none;}
-        input{
-         display :none;
-        }
-        label{
-            display:none;
-        }
-        #acao{display:none;}
-        .newP{
-    display :none;
-}
-. container {
-display:flex;
-    position: absolute;
-    top:3px;
-}
-
-    
-       }
-    
