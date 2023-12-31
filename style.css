@@ -1,10 +1,13 @@
+
+
 *{
     margin: 0;
     padding: 0;
 }
+
 body {
     height: 100vh;
-    background-color:#1173d1;
+    background-color:#ff152a;
     color: #ffffff;
     display: flex;
 
@@ -42,6 +45,11 @@ justify-content: center;
 th{width: 20vw;
     border: solid 1px black ;
 }
+select{
+    height: 5vh;
+    font-size:25px;
+    
+}
 button {
     width: 45vw;
     height: 5vh;
@@ -52,4 +60,27 @@ button {
 .btadd{
     margin-left:50%;
     font-size:20px;
+}
+
+input {
+    width: 20%;
+    height: 5vh;
+    font-size:18px;
+}
+#novoProduto{
+    width: 60%;
+}
+#remove{
+    width: 80%;
+    height: 3vh;
+}
+.newP{
+    display: flex;
+
+align-items: center;
+
+justify-content: center;
+flex-direction:column;
+background-color:#ff6a6a;
+}
 }
