@@ -18,7 +18,7 @@
     </div>
 
     <label for="produto">Selecione um Produto:</label><br>
-    <select id="produto">
+    <select autofocus id="produto">
         <!-- Options will be dynamically loaded from local storage on page load -->
     </select>
     <br>
@@ -49,12 +49,15 @@
     <button onclick="adicionarNovoProduto()">Add novo produto à lista</button>
 
     <button onclick="removerItemSelecionado()">Remover item </button>
-    <button onClick="window.print()">Imprimir</button>
-</div>
+    
+    
+   <button onclick="window.print()">Imprimir</button>
+    
 </div>
 
-<script>
-    // Load products from local storage on page load
+</div>
+
+<script > // Load products from local storage on page load
     window.onload = function() {
         carregarLista();
     };
@@ -184,7 +187,47 @@
             selectProduto.add(option);
         }
     }
-</script>
+  
+
+
+        function abrirNovaAba() {
+            // Abre uma nova aba
+            var novaAba = window.open('', '','height=700,width=700');
+
+            // Adiciona o conteúdo desejado (tabela e visor) à nova aba
+            novaAba.document.write('<html><head><title>Visualização e Impressão</title></head><body>');
+            
+document.styleSheets[1].insertRule('@media print { table { border: 1px solid black; border-collapse: collapse; width: 100%; } th, td { border: 1px solid black; padding: 8px; } #acao { display: none; } }', 0);
+
+            // Adiciona a tabela à nova aba
+            novaAba.document.write('<h2>Minhas Compras</h2>');
+            
+   // Adiciona o visor à nova aba
+            novaAba.document.write('<div class="visor">');
+            novaAba.document.write(document.querySelector('.visor').outerHTML);
+            novaAba.document.write(document.getElementById('tabela').outerHTML);
+            
+            novaAba.document.write('</div>');
+
+            // Adiciona um botão de impressão na nova aba
+            novaAba.document.write('<button onclick="window.print()">Imprimir</button>');
+
+            // Fecha as tags HTML
+            novaAba.document.write('</body></html>');
+            novaAba.document.close();
+            
+        }
+        
+   
+
+    <!-- Adicione o botão de impressão onde desejar (por exemplo, abaixo do título) -->
+    
+   
+
+    
+    
+    
+    </script>
 
 </body>
 </html>
