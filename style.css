@@ -1,13 +1,18 @@
 
 
-*{
+
+
+    /* Estilos padrão para todas as telas */
+
+    @media screen and (max-width: 600px) {
+    *{
     margin: 0;
     padding: 0;
 }
 
 body {
     height: 100vh;
-    background-color:#ff152a;
+    
     color: #ffffff;
     display: flex;
 
@@ -40,7 +45,13 @@ justify-content: center;
 }
 #tabela{
     border: solid 1px black ;
+    text-align: center ;
+    background-color: lightgray;
+    color: black;
     
+}
+tr{
+    border: solid 1px black ;
 }
 th{width: 20vw;
     border: solid 1px black ;
@@ -83,4 +94,98 @@ justify-content: center;
 flex-direction:column;
 background-color:#ff6a6a;
 }
+
+        /* Estilos para telas pequenas (largura máxima de 600 pixels) */
+       
+    }
+
+    @media screen and (min-width: 601px) {
+        /* Estilos para telas maiores (largura mínima de 800 pixels) */
+        body {
+            zoom:2.3;
+            background-color: lightgray;
+            color: white;
+           
+            
+        }
+        .container {
+    width: 380px;
+    background-color:#01070cb7 ;
+    height: 100vh;
+    margin: 1px;
+    padding: 16px;
+    
+    border-radius: 15px;
+    
+    
 }
+        .visor{
+  border: solid 1px black ;
+  border-radius: 5px;
+  background-color:#6d6d6d;
+  margin-left:70%;
+  padding:8px ;
+  width: 20%;
+  
+  
+  font-size:20px;
+  border-color:#ffffff;
+}
+h6{
+    padding: 0;
+    margin: 0;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+
+        .newP{
+        width: 300px;
+    display: flex;
+align-items: center ;
+justify-content: center;
+flex-direction:column;
+background-color:#ff6a6a;
+}
+button {
+    width: 200px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 7px;
+    font-size:15px;
+}
+.btadd{
+    margin-left:50%;
+    font-size:15px;
+}
+#novoProduto{
+    width: 200px;
+}
+select{
+    font-size:20px
+}
+input{
+    font-size:20px
+}
+#tabela{
+    background-color: lightgray;
+    border: solid 1px black ;
+    text-align: center ;
+    color: black;
+}
+th{width: 60px;
+    border: solid 1px black ;
+}
+#remove{
+    width: 80%;
+    height: 20px;
+    
+}
+        /* Adicione mais estilos conforme necessário para a sua aplicação responsiva em telas maiores */
+    }
+
+
+
+    }
+    
