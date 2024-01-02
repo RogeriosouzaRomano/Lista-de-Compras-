@@ -1,3 +1,7 @@
+@page {
+    size: A4;
+    margin: 20mm;
+  }
 
  body {
      width: 21cm;
@@ -8,7 +12,34 @@
         background: white;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     }
-    
+    .conteudo{
+        margin: 0;
+        padding: 7px;
+    }
+    #tabela{
+        border:solid 1px black;
+        background-color: lightgrey;
+        text-align:center;
+    }
+    th{
+    border: solid 1px black ;
+}
+  .visor{
+  border: solid 1px black ;
+  border-radius: 5px;
+  background-color:#6d6d6d;
+  margin-left:70%;
+  padding:8px ;
+  width: 20%;
+  margin-bottom:0;
+  
+  
+  font-size:20px;
+  border-color:#ffffff;
+}
+h3{
+    margin-top:0;
+}
 
 button{
     display:none;
@@ -24,8 +55,14 @@ label{
 }
 table{
     width: 60%;
+    border : solid 1px black ;
+}
+th{
+    b
+}
+td{
+    border : solid 1px black ;
 }
 #acao{
     display:none;
 }
-
